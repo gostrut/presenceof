@@ -32,7 +32,7 @@ func TestPresenceOf(t *testing.T) {
 		{"Address", d},
 	} {
 		fields, err := val.Validates(v.i)
-		f := fields[0]
+		f := fields.Get(v.f)[0]
 		assert.Nil(t, err)
 		assert.False(t, fields.Valid())
 		assert.Equal(t, fmt.Sprintf("%s is required", v.f), f.Error())
