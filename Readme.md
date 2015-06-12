@@ -4,6 +4,10 @@
 
 Validate presence of
 
+## Install
+
+    go get gopkg.in/gostrut/presenceof.v1
+
 ## Example
 
     type Person struct {
@@ -15,6 +19,12 @@ Validate presence of
 
     p := Person{}
     fields, err := val.Validates(p)
+    if err != nil {
+      // handle validation error
+    }
+    if !fields.Valid() {
+      // handle invalid fields
+    }
 
 ## License
 
