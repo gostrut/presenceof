@@ -1,9 +1,12 @@
 package presenceof
 
-import "fmt"
-import "testing"
-import "github.com/nowk/assert"
-import "github.com/gostrut/strut"
+import (
+	"fmt"
+	"testing"
+
+	"gopkg.in/gostrut/strut.v1"
+	"gopkg.in/nowk/assert.v2"
+)
 
 func TestPresenceOf(t *testing.T) {
 	val := strut.NewValidator()

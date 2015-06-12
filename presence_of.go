@@ -1,16 +1,19 @@
 package presenceof
 
-import "reflect"
-import "github.com/gostrut/invalid"
+import (
+	"reflect"
+
+	"gopkg.in/gostrut/strut.v1/invalid"
+)
 
 // Validator for presenceof validates the presence of a value on a field
 // Zero values are considered invalid and will invalidate
 // StructTag value is passed as the 2nd string arg, but we don't need it here
-func Validator(name, _ string, vo *reflect.Value) (invalid.Field, error) {
-	vi := vo.Interface()
-	z := reflect.Zero(vo.Type())
-	if reflect.DeepEqual(z.Interface(), vi) {
-		return iField{name}, nil
+func Validator(n, _ string, v *reflect.Value) (invalid.Field, error) {
+	z := reflect.Zero(v.Type())
+
+	if reflect.DeepEqual(z.Interface(), v.Interface()) {
+		return field{n}, nil
 	}
 
 	return nil, nil
