@@ -15,10 +15,10 @@ Validate presence of
     }
 
     val := NewValidator()
-    val.Checks("presence_of", presenceof.Validator)
+    val.Add("presence_of", presenceof.Validator)
 
     p := Person{}
-    fields, err := val.Validates(p)
+    fields, err := val.Check(p)
     if err != nil {
       // handle validation error
     }

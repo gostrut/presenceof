@@ -10,7 +10,7 @@ import (
 
 func TestPresenceOf(t *testing.T) {
 	val := strut.NewValidator()
-	val.Checks("presence_of", Validator)
+	val.Add("presence_of", Validator)
 
 	type Address struct {
 		Street string `presence_of:"true"`
@@ -34,7 +34,7 @@ func TestPresenceOf(t *testing.T) {
 		{"Address", c},
 		{"Address", d},
 	} {
-		fields, err := val.Validates(v.i)
+		fields, err := val.Check(v.i)
 		f := fields.Get(v.f)[0]
 		assert.Nil(t, err)
 		assert.False(t, fields.Valid())
@@ -45,7 +45,7 @@ func TestPresenceOf(t *testing.T) {
 		Street: "Sesame",
 	}
 
-	fields, err := val.Validates(e)
+	fields, err := val.Check(e)
 	assert.Nil(t, err)
 	assert.True(t, fields.Valid())
 }
