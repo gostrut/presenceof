@@ -3,7 +3,7 @@ package presenceof
 import (
 	"reflect"
 
-	"gopkg.in/gostrut/strut.v1/invalid"
+	"github.com/gostrut/strut/invalid"
 )
 
 // Validator for presenceof validates the presence of a value on a field

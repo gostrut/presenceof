@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"gopkg.in/gostrut/strut.v1"
+	"github.com/gostrut/strut"
 	"gopkg.in/nowk/assert.v2"
 )
 
